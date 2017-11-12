@@ -1,5 +1,5 @@
 #Environment Setting
-setwd("/home/tjahn/Data")
+setwd("/home/21500576")
 
 
 # Merging files into one dataframe
@@ -22,7 +22,7 @@ multmerge = function(mypath){
   return(list(Data = data, Result = result))
   
 }
-datas<-multmerge("/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
+datas<-multmerge("/home/data/GEO_GPL570")
 #datas<-multmerge("/Users/chanhee/Desktop/Data")
 
 df<-datas$Data
