@@ -61,4 +61,4 @@ p_df[,-length(p_df)]<-apply(p_df[,-length(p_df)],1,function(x){round((x-mean(x))
 #plot(distribution0)
 #points(distribution1,col = "red")
 
-write.csv(p_df,"DRA_Data.csv")
+write.csv(p_df,"DRA_Data2.csv")
