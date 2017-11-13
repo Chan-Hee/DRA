@@ -1,3 +1,13 @@
+
+
+# Data Merging week 11 homework #
+#         What to do !!!!       #
+
+## Merge All files into data frame
+## Save data about whehter the paitent is cancer or not
+
+
+
 #Environment Setting
 setwd("/home/21500576")
 
@@ -9,6 +19,7 @@ multmerge = function(mypath){
   
   check<-lapply(datalist,dim)
   index<-sapply(check,function(x){x[1]==54675&&x[2]>3})
+  
   datalist<-datalist[index]
   filelist<-filenames[index]
   
@@ -22,6 +33,7 @@ multmerge = function(mypath){
   return(list(Data = data, Result = result))
   
 }
+
 datas<-multmerge("/home/data/GEO_GPL570")
 #datas<-multmerge("/Users/chanhee/Desktop/Data")
 
@@ -29,14 +41,32 @@ df<-datas$Data
 result<-datas$Result
 
 
-# Data Preprocessing week 12 homework
 
-p_df<-df[df$Gene_Symbol!="",]
+
+
+
+# Data Preprocessing week 12 homework #
+#         What to do !!!!             #
+
+## Genes with no names, Genes that are duplicated
+## Remove row1, row3, and then transpose the data
+## Add result to the dataframe
+## Explore the Data!
+## Remove Na Data
+## Set the data type correctly for result and gene data
+## Normalize the data 
+
+
+
+
+
+p_df<-df[df$Gene_Symbol!="",] 
 p_df<-p_df[!duplicated(p_df[,2]),]
 
 p_df<-as.data.frame(t(p_df[,c(-1,-3)]))
 colnames(p_df) <- as.character(unlist(p_df[1,]))
 p_df = p_df[-1, ]
+
 p_df$Result<-result
 
 not_na<-apply(p_df,1,function(x){!any(is.na(x))})
